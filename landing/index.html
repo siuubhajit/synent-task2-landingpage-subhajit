@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pacelog | Track& View reports</title>
+  <link rel="stylesheet" href="style.css">
+  <script>
+    (function () {
+      var saved = null;
+      try { saved = localStorage.getItem("theme"); } catch (e) {}
+      var prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      var theme = saved || (prefersDark ? "dark" : "light");
+      document.documentElement.setAttribute("data-theme", theme);
+    })();
+  </script>
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <a href="#top" class="brand">Pacelog</a>
+        <div class="nav-right">
+          <ul>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+          <button id="theme-toggle" type="button" aria-label="Toggle dark and light mode">◐</button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container" id="top">
+
+    <section class="hero">
+      <h1>Keep Log Of Your Training</h1>
+      
+      <p>Record a run in under ten seconds, then check your week on a single page. Pacelog works offline and keeps your data on your device.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-primary">Get started</a>
+        <a href="#features" class="btn btn-secondary">See features</a>
+      </div>
+    </section>
+
+    <section id="features">
+      <h2>Features</h2>
+
+      <div class="features">
+        <article class="feature">
+          <h3>Entry</h3>
+          <p>Type distance, time and effort on one line. Pacelog works out the pace for you.</p>
+        </article>
+
+        <article class="feature">
+          <h3>Track records</h3>
+          <p>Mileage, sessions and rest days for each week sit on one screen.</p>
+        </article>
+
+        <article class="feature">
+          <h3>Sync offline records online</h3>
+          <p>Your log lives on your device, so you can add a run on a trail with no signal. When you get internet you can sync progress.</p>
+        </article>
+
+        <article class="feature">
+          <h3>CSV export</h3>
+          <p>Download your full history as a CSV file whenever you want to open it in a spreadsheet.</p>
+        </article>
+      </div>
+    </section>
+
+  </main>
+
+  <footer id="contact">
+    <div class="container">
+      <ul class="footer-links">
+        <li><a href="mailto:NULL">Mail</a></li>
+      </ul>
+      <p>© 2026 Pacelog</p>
+    </div>
+  </footer>
+
+  <script>
+    var toggle = document.getElementById("theme-toggle");
+
+    toggle.addEventListener("click", function () {
+      var root = document.documentElement;
+      var next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
+      root.setAttribute("data-theme", next);
+      try { localStorage.setItem("theme", next); } catch (e) {}
+    });
+  </script>
+
+</body>
+</html>
