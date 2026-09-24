@@ -20,30 +20,25 @@ Open `index.html` in a browser and click "Pacelog" to reach the landing page. Yo
 
 ## The landing page
 
-It has a header with a theme toggle, a hero section with two buttons, a features section with four cards, and a footer.
+It has a sticky header with a mobile navigation toggle and theme switch, a hero section with two action buttons, a how-it-works section, four feature cards, a runners' reviews section, and a footer.
 
-The four features are quick entry, a weekly view, offline logging and CSV export. The copy is placeholder text for a product that doesn't exist, and the email address in the footer is a dummy one.
+The four features cover quick entry, weekly summary, offline logging, and CSV export. The copy is placeholder text for a concept project, and the email address in the footer is a dummy address.(All features are dummy and not reponsive we can implement backend afterwards).
 
 ## Responsive layout
 
-The layout is written mobile first and changes at two widths.
+The layout is built mobile-first and adapts cleanly across different screen sizes.
 
-| Screen | Features | Hero buttons |
-| --- | --- | --- |
-| Under 600px | 1 column | Stacked |
-| 600px and up | 2 columns | Side by side |
-| 900px and up | 4 columns | Side by side, larger hero |
 
 ## Theming
 
-Both pages use the same Gruvbox colors, stored as CSS variables in `:root`. The dark values are set under `:root[data-theme="dark"]`.
+Both pages use CSS custom properties defined in `:root` and `:root[data-theme="dark"]` for easy color management.
 
-A small script in the `<head>` sets `data-theme` on the `<html>` element before the page paints. It uses the theme saved in `localStorage` if there is one, and the system light or dark setting otherwise. The landing page has a ◐ button that switches the theme and saves the choice. The front page has no button and follows the saved or system setting.
+An inline script in the `<head>` checks `localStorage` first and falls back to the user's system preferences (`prefers-color-scheme`) to apply the theme without screen flicker. Both the front splash page and the landing page include a toggle button (◐) that switches modes and saves the preference to `localStorage`.
 
-To change the colors, edit the variables at the top of each `style.css`.
+To customize the colors, update the CSS variables at the top of each `style.css` file.
 
 ## Changing the content
 
-- Product name and copy: edit `landing/index.html`.
-- Features: copy or remove an `<article class="feature">` block. The grid adjusts on its own, though four cards fill the desktop row evenly.
-- Front page image: replace `runner-light.png` and `runner-dark.png` with your own. Transparent PNGs work best because they sit on the theme background.
+- Product copy & sections: edit `landing/index.html`.
+- Features & reviews: add or remove `<article class="feature">` or `<blockquote>` elements. The CSS grid adjusts automatically.
+- Front page graphics: replace `runner-light.png` and `runner-dark.png` with transparent PNGs.

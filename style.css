@@ -1,21 +1,22 @@
 :root {
   --bg: #f8f9fa;
+  --bg-card: #ffffff;
   --text: #212529;
   --accent: #2563eb;
+  --border: #dee2e6;
 }
-
-
 
 :root[data-theme="dark"] {
   --bg: #121212;
+  --bg-card: #1e1e1e;
   --text: #e9ecef;
   --accent: #3b82f6;
+  --border: #2d3748;
 }
 
 * {
   box-sizing: border-box;
 }
-
 
 body {
   margin: 0;
@@ -27,11 +28,36 @@ body {
   transition: background 0.2s ease, color 0.2s ease;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
 }
 
+.top-bar {
+  display: flex;
+  justify-content: flex-end;
+  padding: 16px 20px;
+}
+
+#theme-toggle {
+  background: var(--bg-card);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+#theme-toggle:hover {
+  border-color: var(--accent);
+}
+
+.splash-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px 60px;
+}
 
 a {
   color: var(--accent);
@@ -49,9 +75,6 @@ a:hover {
   height: auto;
 }
 
-
-
-
 .runner-dark {
   display: none;
 }
@@ -63,10 +86,6 @@ a:hover {
 :root[data-theme="dark"] .runner-dark {
   display: block;
 }
-
-
-
-
 
 .name {
   margin: 24px 0 0;
@@ -84,10 +103,6 @@ a:hover {
     font-size: 3.5rem;
   }
 }
-
-
-
-
 
 @media (max-width: 600px) {
   .name {
