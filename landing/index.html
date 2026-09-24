@@ -4,6 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pacelog | Track & View Reports</title>
+  <meta name="description" content="Pacelog is a lightweight running log. Record a run in under ten seconds, check your week at a glance, and export your history as CSV.">
+  
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Pacelog - Keep log of your training">
+  <meta property="og:description" content="Record a run in under ten seconds, then check your week on a single page.">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Pacelog - Keep log of your training">
+  <meta name="twitter:description" content="Record a run in under ten seconds, then check your week on a single page.">
+
   <link rel="stylesheet" href="style.css">
   <script>
     const savedTheme = localStorage.getItem("theme");
@@ -14,13 +24,15 @@
 </head>
 
 <body>
-  <header>
+  <header id="site-header">
     <div class="container">
       <nav>
         <a href="#top" class="brand">Pacelog</a>
-        <div class="nav-right">
+        <button id="nav-toggle" type="button" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-menu">☰</button>
+        <div class="nav-right" id="nav-menu">
           <ul>
             <li><a href="#features">Features</a></li>
+            <li><a href="#testimonials">Reviews</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
           <button id="theme-toggle" type="button" aria-label="Toggle theme">◐</button>
@@ -84,6 +96,24 @@
       </div>
     </section>
 
+    <section id="testimonials" class="testimonials">
+      <h2>What runners say</h2>
+      <div class="quotes">
+        <blockquote>
+          <p>"I stopped fighting a spreadsheet every Sunday. Now it's just there."</p>
+          <cite>- Marathon runner, 3 years logging</cite>
+        </blockquote>
+        <blockquote>
+          <p>"The offline logging is the whole point for me. Trail runs, zero signal, no problem."</p>
+          <cite>- Trail runner</cite>
+        </blockquote>
+        <blockquote>
+          <p>"CSV export means my coach actually gets to see the data, not a screenshot."</p>
+          <cite>- Club athlete</cite>
+        </blockquote>
+      </div>
+    </section>
+
   </main>
 
   <footer id="contact">
@@ -96,13 +126,33 @@
   </footer>
 
   <script>
-    const toggle = document.getElementById("theme-toggle");
+    const themeToggle = document.getElementById("theme-toggle");
 
-    toggle.addEventListener("click", () => {
+    themeToggle.addEventListener("click", () => {
       const root = document.documentElement;
       const nextTheme = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
       root.setAttribute("data-theme", nextTheme);
       localStorage.setItem("theme", nextTheme);
+    });
+
+    const header = document.getElementById("site-header");
+    window.addEventListener("scroll", () => {
+      header.classList.toggle("scrolled", window.scrollY > 10);
+    });
+
+    const navToggle = document.getElementById("nav-toggle");
+    const navMenu = document.getElementById("nav-menu");
+
+    navToggle.addEventListener("click", () => {
+      const isOpen = navMenu.classList.toggle("open");
+      navToggle.setAttribute("aria-expanded", isOpen);
+    });
+
+    navMenu.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        navMenu.classList.remove("open");
+        navToggle.setAttribute("aria-expanded", "false");
+      });
     });
   </script>
 
