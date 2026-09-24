@@ -1,35 +1,39 @@
 :root {
-  --bg: #fbf1c7;
-  --bg-card: #ebdbb2;
-  --text: #3c3836;
-  --muted: #7c6f64;
-  --accent: #af3a03;
-  --border: #d5c4a1;
-  --on-accent: #fbf1c7;
+  --bg: #f8f9fa;
+  --bg-card: #ffffff;
+  --text: #212529;
+  --muted: #6c757d;
+  --accent: #2563eb;
+  --border: #dee2e6;
+  --on-accent: #ffffff;
 }
+
+
 
 :root[data-theme="dark"] {
-  --bg: #282828;
-  --bg-card: #3c3836;
-  --text: #ebdbb2;
-  --muted: #a89984;
-  --accent: #fabd2f;
-  --border: #504945;
-  --on-accent: #282828;
+  --bg: #121212;
+  --bg-card: #1e1e1e;
+  --text: #e9ecef;
+  --muted: #a0aec0;
+  --accent: #3b82f6;
+  --border: #2d3748;
+  --on-accent: #ffffff;
 }
-
 
 * {
   box-sizing: border-box;
 }
 
+
+
+
 body {
   margin: 0;
-  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-family: system-ui, -apple-system, sans-serif;
   line-height: 1.6;
   background: var(--bg);
   color: var(--text);
-  transition: background 0.25s, color 0.25s;
+  transition: background 0.2s ease, color 0.2s ease;
 }
 
 a {
@@ -37,24 +41,19 @@ a {
   text-decoration: none;
 }
 
+
+
+
 a:hover {
   text-decoration: underline;
 }
 
-:focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: 2px;
-}
-
-
 .container {
   max-width: 1000px;
   margin: 0 auto;
-  padding: 0 1rem;
+  padding: 0 16px;
 }
 
-
-/* Header */
 header {
   border-bottom: 1px solid var(--border);
 }
@@ -64,13 +63,16 @@ nav {
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 0.5rem;
-  padding: 1rem 0;
+  gap: 8px;
+  padding: 16px 0;
 }
+
+
+
 
 .brand {
   font-weight: 700;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   color: var(--text);
 }
 
@@ -80,8 +82,7 @@ nav {
 
 nav ul {
   display: flex;
-  flex-wrap: wrap;
-  gap: 1.25rem;
+  gap: 20px;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -90,8 +91,7 @@ nav ul {
 .nav-right {
   display: flex;
   align-items: center;
-  flex-wrap: wrap;
-  gap: 1.25rem;
+  gap: 20px;
 }
 
 #theme-toggle {
@@ -99,53 +99,88 @@ nav ul {
   color: var(--text);
   border: 1px solid var(--border);
   border-radius: 6px;
-  padding: 0.35rem 0.8rem;
-  font-size: 1rem;
+  padding: 6px 12px;
+  font-size: 0.95rem;
   cursor: pointer;
 }
+
+
 
 #theme-toggle:hover {
   border-color: var(--accent);
 }
 
-
-/* Hero */
 .hero {
   text-align: center;
-  padding: 3rem 0 2rem;
+  padding: 48px 0 32px;
 }
 
 .hero h1 {
-  margin: 0 0 0.75rem;
-  font-size: 2.5rem;
+  margin: 0 0 12px;
+  font-size: 2.4rem;
   line-height: 1.2;
 }
 
+
+
 .hero p {
-  max-width: 36rem;
-  margin: 0 auto 1.5rem;
+  max-width: 580px;
+  margin: 0 auto 24px;
   color: var(--muted);
-  font-size: 1.1rem;
+  font-size: 1.05rem;
 }
+
+
 
 .hero-actions {
   display: flex;
   flex-direction: column;
-  align-items: stretch;
-  gap: 0.75rem;
-  max-width: 20rem;
+  gap: 12px;
+  max-width: 320px;
   margin: 0 auto;
+}
+
+
+
+.how {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  text-align: center;
+  padding: 16px 0 32px;
+}
+
+.how-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: var(--on-accent);
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.how-step h3 {
+  margin: 0 0 4px;
+}
+
+.how-step p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
 }
 
 .btn {
   display: inline-block;
-  padding: 0.7rem 1.4rem;
+  padding: 10px 20px;
   border: 1px solid var(--accent);
   border-radius: 6px;
   font-size: 1rem;
   font-weight: 600;
   text-align: center;
-  transition: background 0.25s, color 0.25s;
 }
 
 .btn:hover {
@@ -158,8 +193,7 @@ nav ul {
 }
 
 .btn-primary:hover {
-  background: transparent;
-  color: var(--accent);
+  opacity: 0.9;
 }
 
 .btn-secondary {
@@ -171,31 +205,26 @@ nav ul {
   background: var(--bg-card);
 }
 
-
-/* Sections */
 main section {
-  margin-bottom: 2.5rem;
+  margin-bottom: 40px;
 }
 
 main h2 {
   border-bottom: 2px solid var(--accent);
-  padding-bottom: 0.3rem;
+  padding-bottom: 6px;
 }
 
-
-/* Features */
 .features {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1rem;
+  gap: 16px;
 }
 
 .feature {
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: 8px;
-  padding: 1rem 1.25rem;
-  transition: border-color 0.25s;
+  padding: 18px 20px;
 }
 
 .feature:hover {
@@ -203,7 +232,7 @@ main h2 {
 }
 
 .feature h3 {
-  margin: 0 0 0.25rem;
+  margin: 0 0 6px;
 }
 
 .feature p {
@@ -212,11 +241,9 @@ main h2 {
   color: var(--muted);
 }
 
-
-/* Footer */
 footer {
   border-top: 1px solid var(--border);
-  padding: 1.5rem 0;
+  padding: 24px 0;
   text-align: center;
   color: var(--muted);
   font-size: 0.9rem;
@@ -228,19 +255,20 @@ footer p {
 
 .footer-links {
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
-  gap: 1.25rem;
-  margin: 0 0 0.75rem;
+  gap: 20px;
+  margin: 0 0 12px;
   padding: 0;
   list-style: none;
 }
 
-
-/* Tablet: two feature columns, buttons side by side */
 @media (min-width: 600px) {
   .features {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .how {
+    grid-template-columns: repeat(3, 1fr);
   }
 
   .hero-actions {
@@ -250,14 +278,13 @@ footer p {
   }
 }
 
-/* Desktop: four feature columns */
 @media (min-width: 900px) {
   .features {
     grid-template-columns: repeat(4, 1fr);
   }
 
   .hero {
-    padding: 4.5rem 0 3rem;
+    padding: 64px 0 40px;
   }
 
   .hero h1 {
@@ -265,12 +292,12 @@ footer p {
   }
 }
 
-/* Phones */
 @media (max-width: 600px) {
   .hero h1 {
     font-size: 1.8rem;
   }
 
+  
   nav {
     justify-content: center;
   }

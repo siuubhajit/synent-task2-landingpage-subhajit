@@ -3,16 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pacelog | Track& View reports</title>
+  <title>Pacelog | Track & View Reports</title>
   <link rel="stylesheet" href="style.css">
   <script>
-    (function () {
-      var saved = null;
-      try { saved = localStorage.getItem("theme"); } catch (e) {}
-      var prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-      var theme = saved || (prefersDark ? "dark" : "light");
-      document.documentElement.setAttribute("data-theme", theme);
-    })();
+    const savedTheme = localStorage.getItem("theme");
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    const theme = savedTheme || (prefersDark ? "dark" : "light");
+    document.documentElement.setAttribute("data-theme", theme);
   </script>
 </head>
 
@@ -26,7 +23,7 @@
             <li><a href="#features">Features</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
-          <button id="theme-toggle" type="button" aria-label="Toggle dark and light mode">◐</button>
+          <button id="theme-toggle" type="button" aria-label="Toggle theme">◐</button>
         </div>
       </nav>
     </div>
@@ -36,11 +33,28 @@
 
     <section class="hero">
       <h1>Keep Log Of Your Training</h1>
-      
       <p>Record a run in under ten seconds, then check your week on a single page. Pacelog works offline and keeps your data on your device.</p>
       <div class="hero-actions">
         <a href="#contact" class="btn btn-primary">Get started</a>
         <a href="#features" class="btn btn-secondary">See features</a>
+      </div>
+    </section>
+
+    <section id="how" class="how">
+      <div class="how-step">
+        <span class="how-num">1</span>
+        <h3>Log a run</h3>
+        <p>Distance, time, effort - one line, ten seconds.</p>
+      </div>
+      <div class="how-step">
+        <span class="how-num">2</span>
+        <h3>Check your week</h3>
+        <p>Mileage and rest days on a single screen.</p>
+      </div>
+      <div class="how-step">
+        <span class="how-num">3</span>
+        <h3>Export when you need it</h3>
+        <p>Pull the full history as CSV, any time.</p>
       </div>
     </section>
 
@@ -75,20 +89,20 @@
   <footer id="contact">
     <div class="container">
       <ul class="footer-links">
-        <li><a href="mailto:NULL">Mail</a></li>
+        <li><a href="mailto:contact@pacelog.local">Mail</a></li>
       </ul>
       <p>© 2026 Pacelog</p>
     </div>
   </footer>
 
   <script>
-    var toggle = document.getElementById("theme-toggle");
+    const toggle = document.getElementById("theme-toggle");
 
-    toggle.addEventListener("click", function () {
-      var root = document.documentElement;
-      var next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
-      root.setAttribute("data-theme", next);
-      try { localStorage.setItem("theme", next); } catch (e) {}
+    toggle.addEventListener("click", () => {
+      const root = document.documentElement;
+      const nextTheme = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
+      root.setAttribute("data-theme", nextTheme);
+      localStorage.setItem("theme", nextTheme);
     });
   </script>
 

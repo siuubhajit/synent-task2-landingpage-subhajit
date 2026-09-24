@@ -5,21 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pacelog</title>
   <link rel="stylesheet" href="style.css">
+
+
+  
   <script>
-    (function () {
-      var saved = null;
-      try { saved = localStorage.getItem("theme"); } catch (e) {}
-      var prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-      var theme = saved || (prefersDark ? "dark" : "light");
-      document.documentElement.setAttribute("data-theme", theme);
-    })();
+    const savedTheme = localStorage.getItem("theme");
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    const theme = savedTheme || (prefersDark ? "dark" : "light");
+    document.documentElement.setAttribute("data-theme", theme);
   </script>
 </head>
-
 <body>
+
+
   <img src="runner-light.png" alt="Runner" class="runner runner-light">
-  <img src="runner-dark.png" alt="" class="runner runner-dark">
+  <img src="runner-dark.png" alt="Runner" class="runner runner-dark">
 
   <h1 class="name"><a href="landing/index.html">Pacelog</a></h1>
+
+
 </body>
 </html>
